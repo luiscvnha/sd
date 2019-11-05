@@ -19,7 +19,9 @@ public class Consumidor implements Runnable {
             buf.get();
             try {
                 Thread.sleep(Tc);
-            } catch (InterruptedException e) {e.printStackTrace();}
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
