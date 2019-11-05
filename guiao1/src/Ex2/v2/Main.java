@@ -10,11 +10,8 @@ public class Main implements Runnable {
     }
 
     public void run() {
-        for (int i = 0; i < I; ++i) {
-            synchronized (this.cnt) {
-                ++cnt.x;
-            }
-        }
+        for (int i = 0; i < I; ++i)
+            ++cnt.x;
     }
 
     public static void main(String[] args) {
