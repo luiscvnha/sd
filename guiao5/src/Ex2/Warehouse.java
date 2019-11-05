@@ -18,11 +18,17 @@ public class Warehouse {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("Warehouse {");
-        stock.forEach( (s, i) -> sb.append(s).append(" ").append(i.getQuantity()).append(", "));
-        if (!stock.isEmpty()) {
-            int len = sb.length();
-            sb.delete(len - 2, len);
+
+        Iterator<Map.Entry<String, Item>> itr = stock.entrySet().iterator();
+        if (itr.hasNext()) {
+            Map.Entry<String, Item> entry = itr.next();
+            sb.append(entry.getKey()).append(" ").append(entry.getValue().getQuantity());
+            while (itr.hasNext()) {
+                entry = itr.next();
+                sb.append(", ").append(entry.getKey()).append(" ").append(entry.getValue().getQuantity());
+            }
         }
+
         sb.append("}");
         return sb.toString();
     }
