@@ -1,7 +1,9 @@
-public class Ex2_Banco {
+package Ex2;
+
+public class Banco {
     private double[] contas;
 
-    public Ex2_Banco(int n) {
+    public Banco(int n) {
         this.contas = new double[n];
         for (int i = 0; i < n; ++i)
             this.contas[i] = 0.0;

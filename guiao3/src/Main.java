@@ -9,7 +9,9 @@ public class Main {
         try {
             banco.depositar(0, 5000.0);
             banco.depositar(1, 5000.0);}
-        catch (ContaInvalida ci) {ci.printStackTrace();}
+        catch (ContaInvalida ci) {
+            ci.printStackTrace();
+        }
 
         t1.start();
         t2.start();
@@ -17,11 +19,15 @@ public class Main {
         try {
             t1.join();
             t2.join();
-        } catch (InterruptedException ie) {ie.printStackTrace();}
+        } catch (InterruptedException ie) {
+            ie.printStackTrace();
+        }
 
         try {
             System.out.println("Valor da conta 0: " + banco.consultar(0));
             System.out.println("Valor da conta 1: " + banco.consultar(1));
-        } catch (ContaInvalida ci) {ci.printStackTrace();}
+        } catch (ContaInvalida ci) {
+            ci.printStackTrace();
+        }
     }
 }

@@ -17,13 +17,13 @@ public class Conta {
         this.lockConta = new ReentrantLock();
     }
 
-    public void lock() {this.lockConta.lock();}
+    public void lock() { this.lockConta.lock(); }
 
-    public void unlock() {this.lockConta.unlock();}
+    public void unlock() { this.lockConta.unlock(); }
 
-    public double consultar() {return this.saldo;}
+    public double consultar() { return saldo; }
 
-    public void depositar(double valor) {this.saldo += valor;}
+    public void depositar(double valor) { saldo += valor; }
 
-    public void levantar(double valor) {this.saldo -= valor;}
+    public void levantar(double valor) { saldo -= valor; }
 }

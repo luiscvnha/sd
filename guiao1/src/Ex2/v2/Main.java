@@ -1,15 +1,10 @@
-class CounterB {
-    public int x;
+package Ex2.v2;
 
-    public CounterB() { this.x = 0; }
-}
-
-
-public class Ex2_2 implements Runnable {
-    private CounterB cnt;
+public class Main implements Runnable {
+    private Counter cnt;
     private int I;
 
-    public Ex2_2(CounterB c, int i) {
+    public Main(Counter c, int i) {
         this.cnt = c;
         this.I = i;
     }
@@ -27,10 +22,10 @@ public class Ex2_2 implements Runnable {
             I = 10;
 
         Thread[] threads = new Thread[N];
-        CounterB cnt = new CounterB();
+        Counter cnt = new Counter();
 
         for (int i = 0; i < N; ++i)
-            threads[i] = new Thread(new Ex2_2(cnt, I));
+            threads[i] = new Thread(new Main(cnt, I));
 
         for (int i = 0; i < N; ++i)
             threads[i].start();
@@ -38,7 +33,9 @@ public class Ex2_2 implements Runnable {
         try {
             for (int i = 0; i < N; ++i)
                 threads[i].join();
-        } catch (InterruptedException e) {System.out.println(":(");}
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         System.out.println(cnt.x);
     }

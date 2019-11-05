@@ -1,10 +1,12 @@
-public class Ex1 implements Runnable {
-    private int N;
+package Ex1;
 
-    public Ex1(int n) { this.N = n; }
+public class Ex1 implements Runnable {
+    private int I;
+
+    public Ex1(int i) {this.I = i;}
 
     public void run() {
-        for (int i = 1; i <= N; ++i)
+        for (int i = 1; i <= this.I; ++i)
             System.out.println(i);
     }
 
@@ -14,7 +16,7 @@ public class Ex1 implements Runnable {
         Thread[] threads = new Thread[N];
 
         for (int i = 0; i < N; ++i)
-            threads[i] = new Thread(new PrintN(I));
+            threads[i] = new Thread(new Ex1(I));
 
         System.out.println("Antes");
         for (int i = 0; i < N; ++i)
@@ -24,7 +26,9 @@ public class Ex1 implements Runnable {
         try {
             for (int i = 0; i < N; ++i)
                 threads[i].join();
-        } catch (InterruptedException e) {System.out.println(":(");}
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.println("Fim");
     }
 }

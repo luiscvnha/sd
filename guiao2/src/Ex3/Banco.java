@@ -1,7 +1,9 @@
-public class Ex3_Banco {
+package Ex3;
+
+public class Banco {
     private double[] contas;
 
-    public Ex3_Banco(int n) {
+    public Banco(int n) {
         this.contas = new double[n];
         for (int i = 0; i < n; ++i)
             this.contas[i] = 0.0;

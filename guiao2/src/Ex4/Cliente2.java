@@ -1,3 +1,5 @@
+package Ex4;
+
 public class Cliente2 implements Runnable {
     private Banco banco;
 
@@ -5,10 +7,6 @@ public class Cliente2 implements Runnable {
 
     public void run() {
         for (int i = 0; i < 1000; ++i)
-            try {
-                this.banco.levantar(1, 5.0);
-            } catch (SaldoInsuficiente | ContaInvalida e) {
-                e.printStackTrace();
-            }
+            this.banco.levantar(1, 5.0);
     }
 }
