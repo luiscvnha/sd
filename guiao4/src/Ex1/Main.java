@@ -1,8 +1,8 @@
-public class Teste {
-    public static void main(String[] args) {
-        final int SIZE = 10;
+package Ex1;
 
-        BoundedBuffer buf = new BoundedBuffer(SIZE);
+public class Main {
+    public static void main(String[] args) {
+        BoundedBuffer buf = new BoundedBuffer(10);
         Thread t1 = new Thread(new Consumidor(buf));
         Thread t2 = new Thread(new Produtor(buf));
 

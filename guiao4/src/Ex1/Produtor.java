@@ -1,3 +1,5 @@
+package Ex1;
+
 public class Produtor implements Runnable {
     private BoundedBuffer buf;
 

@@ -1,3 +1,5 @@
+package Ex1;
+
 public class Consumidor implements Runnable {
     private BoundedBuffer buf;
 
@@ -7,7 +9,7 @@ public class Consumidor implements Runnable {
 
     @Override
     public void run() {
-        for (int i = 0; i < 15; ++i)
+        for (int i = 0; i < 20; ++i)
             buf.get();
     }
 }

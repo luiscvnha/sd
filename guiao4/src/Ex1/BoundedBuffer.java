@@ -1,3 +1,5 @@
+package Ex1;
+
 public class BoundedBuffer {
     private int[] array;
     private int poswrite;
