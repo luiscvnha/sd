@@ -19,7 +19,9 @@ public class Produtor implements Runnable {
             buf.put(i);
             try {
                 Thread.sleep(Tp);
-            } catch (InterruptedException e) {e.printStackTrace();}
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
