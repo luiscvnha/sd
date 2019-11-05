@@ -11,8 +11,7 @@ public class BoundedBuffer {
 
     public synchronized void put(int v) {
         while (poswrite >= array.length) {
-            try {wait();}
-            catch (InterruptedException e) {e.printStackTrace();}
+            try {wait();} catch (InterruptedException e) {e.printStackTrace();}
         }
         array[poswrite] = v;
         ++poswrite;
@@ -21,8 +20,7 @@ public class BoundedBuffer {
 
     public synchronized int get() {
         while (poswrite <= 0) {
-            try {wait();}
-            catch (InterruptedException e) {e.printStackTrace();}
+            try {wait();} catch (InterruptedException e) {e.printStackTrace();}
         }
         int r = array[--poswrite];
         notifyAll();
