@@ -1,2 +1,4 @@
-# sistemas-distribuidos
-UM Sistemas Distribuídos 2019/2020
+# Sistemas Distribuídos
+Universidade do Minho
+
+2019/2020
