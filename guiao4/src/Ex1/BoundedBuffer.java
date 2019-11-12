@@ -27,7 +27,6 @@ public class BoundedBuffer {
         return r;
     }
 
-    @Override
     public String toString() {
         if (poswrite <= 0) {
             return "[]";
