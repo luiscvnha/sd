@@ -12,3 +12,4 @@ guião | exercícios propostos
 4 | 3
 5 | 1
 6 |
+7 |
