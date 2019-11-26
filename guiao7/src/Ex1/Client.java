@@ -15,13 +15,13 @@ public class Client {
         BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
         PrintWriter out = new PrintWriter(socket.getOutputStream());
 
-        String command;
+        String send;
         while (true) {
             System.out.print("client> ");
-            command = stdin.readLine();
-            out.println(command);
+            send = stdin.readLine();
+            out.println(send);
             out.flush();
-            if (command.equals("quit")) break;
+            if (send.equals("quit")) break;
             else System.out.println("server> " + in.readLine());
         }
 
