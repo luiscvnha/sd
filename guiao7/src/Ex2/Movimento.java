@@ -1,12 +1,30 @@
 package Ex2;
 
+
 public class Movimento {
-    private ID_Operacao operacao;
+    private Operacao operacao;
     private String descritivo;
     private double valor;
     private double saldo;
 
-    public Movimento(ID_Operacao operacao, String descritivo, double valor, double saldo) {
+
+    public enum Operacao {
+        DEPOSITO("Depósito"),
+        LEVANTAMENTO("Levantamento");
+
+        private final String desc;
+
+        private Operacao(String desc) {
+            this.desc = desc;
+        }
+
+        public String toString() {
+            return desc;
+        }
+    }
+
+
+    public Movimento(Operacao operacao, String descritivo, double valor, double saldo) {
         this.operacao = operacao;
         this.descritivo = descritivo;
         this.valor = valor;
@@ -19,6 +37,11 @@ public class Movimento {
         this.valor = m.valor;
         this.saldo = m.saldo;
     }
+
+    public Operacao getOperacao() { return operacao; }
+    public String getDescritivo() { return descritivo; }
+    public double getValor() { return valor; }
+    public double getSaldo() { return saldo; }
 
     public Movimento clone() { return new Movimento(this); }
 

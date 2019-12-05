@@ -3,12 +3,15 @@ package Ex2;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.locks.ReentrantLock;
+import static Ex2.Movimento.*;
+
 
 public class Conta {
     private int id;
     private double saldo;
     private ReentrantLock lockConta;
     private List<Movimento> movimentos;
+
 
     public Conta(int id) {
         this.id = id;
@@ -32,12 +35,12 @@ public class Conta {
 
     public void depositar(double valor, String descricao) {
         saldo += valor;
-        movimentos.add(new Movimento(ID_Operacao.DEPOSITO, descricao, valor, saldo));
+        movimentos.add(new Movimento(Operacao.DEPOSITO, descricao, valor, saldo));
     }
 
     public void levantar(double valor, String descricao) {
         saldo -= valor;
-        movimentos.add(new Movimento(ID_Operacao.LEVANTAMENTO, descricao, valor, saldo));
+        movimentos.add(new Movimento(Operacao.LEVANTAMENTO, descricao, valor, saldo));
     }
 
     public List<Movimento> getMovimentos() {
