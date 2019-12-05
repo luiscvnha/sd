@@ -73,7 +73,6 @@ public class ServerWorker implements Runnable {
                 } catch (Exception e) {
                     send = ServerMsg.createErrorMsg(ServerMsg.Error.OUTRO, e.getMessage());
                 }
-                System.out.println(send);
                 out.println(send);
                 out.flush();
             }
