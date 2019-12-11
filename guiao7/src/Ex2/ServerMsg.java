@@ -9,10 +9,10 @@ public class ServerMsg {
     public static final String EXIT = "quit";
     public static final String SEPARATOR = "|";
     public static final String SEPARATOR_REGEX = "\\|";
-    public static final String MOV_VAR_SEPARATOR = " ";
-    public static final String MOV_DESC_SEPARATOR = "-";
+    public static final String MOV_VAR_SEPARATOR = "-";
 
     public static class Request {
+        private Request() {}
         public static final String CRIAR_CONTA = "0";
         public static final String FECHAR_CONTA = "1";
         public static final String CONSULTAR = "2";
@@ -24,11 +24,13 @@ public class ServerMsg {
     }
 
     public static class Status {
+        private Status() {}
         public static final String SUCCESS = "0";
         public static final String ERROR = "1";
     }
 
     public static class Error {
+        private Error() {}
         public static final String CONTA_INVALIDA = "0";
         public static final String SALDO_INSUFICIENTE = "1";
         public static final String OUTRO = "2";
@@ -63,14 +65,14 @@ public class ServerMsg {
         if (itr.hasNext()) {
             Movimento m = itr.next();
             sb.append(m.getOperacao() == Movimento.Operacao.DEPOSITO ? "D" : "L").append(MOV_VAR_SEPARATOR)
-                    .append(m.getDescritivo().replace(" ", MOV_DESC_SEPARATOR)).append(MOV_VAR_SEPARATOR)
+                    .append(m.getDescritivo()).append(MOV_VAR_SEPARATOR)
                     .append(m.getValor()).append(MOV_VAR_SEPARATOR)
                     .append(m.getSaldo());
             while (itr.hasNext()) {
                 m = itr.next();
                 sb.append(SEPARATOR);
                 sb.append(m.getOperacao() == Movimento.Operacao.DEPOSITO ? "D" : "L").append(MOV_VAR_SEPARATOR)
-                        .append(m.getDescritivo().replace(" ", MOV_DESC_SEPARATOR)).append(MOV_VAR_SEPARATOR)
+                        .append(m.getDescritivo()).append(MOV_VAR_SEPARATOR)
                         .append(m.getValor()).append(MOV_VAR_SEPARATOR)
                         .append(m.getSaldo());
             }
@@ -83,7 +85,7 @@ public class ServerMsg {
         for (int i = inicio; i < fim; ++i) {
             String[] vars = array[i].split(MOV_VAR_SEPARATOR);
             Movimento.Operacao op = vars[0].equals("D") ? Movimento.Operacao.DEPOSITO : Movimento.Operacao.LEVANTAMENTO;
-            String desc = vars[1].replace(MOV_DESC_SEPARATOR, " ");
+            String desc = vars[1];
             double valor = Double.parseDouble(vars[2]);
             double saldo = Double.parseDouble(vars[3]);
             r.add(new Movimento(op, desc, valor, saldo));
