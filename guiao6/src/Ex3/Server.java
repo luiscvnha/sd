@@ -6,13 +6,14 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        ServerSocket sSock = new ServerSocket(12345);
+        ServerSocket serverSocket = new ServerSocket(12345);
 
         while (true) {
-            Socket clSock = sSock.accept();
+            Socket clientSocket = serverSocket.accept();
 
-            Thread c = new Thread(new Connection(clSock));
-            c.start();
+            Runnable r = new Worker(clientSocket);
+            Thread t = new Thread(r);
+            t.start();
         }
     }
 }
