@@ -13,7 +13,6 @@ public class Consumidor implements Runnable {
         Tc = t;
     }
 
-    @Override
     public void run() {
         for (int i = 0; i < numOps; ++i) {
             buf.get();
