@@ -9,7 +9,7 @@ public class Banco {
             this.contas[i] = 0.0;
     }
 
-    public double consultar(int conta) {
+    public synchronized double consultar(int conta) {
         return this.contas[conta];
     }
 
