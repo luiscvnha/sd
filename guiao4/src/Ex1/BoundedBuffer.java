@@ -4,14 +4,14 @@ public class BoundedBuffer {
     private int[] array;
     private int poswrite;
 
-    public BoundedBuffer(int s) {
-        array = new int[s];
+    public BoundedBuffer(int size) {
+        array = new int[size];
         poswrite = 0;
     }
 
     public synchronized void put(int v) {
         while (poswrite >= array.length) {
-            try {wait();} catch (InterruptedException e) {e.printStackTrace();}
+            try {wait();} catch (InterruptedException ignored) {}
         }
         array[poswrite] = v;
         ++poswrite;
@@ -20,7 +20,7 @@ public class BoundedBuffer {
 
     public synchronized int get() {
         while (poswrite <= 0) {
-            try {wait();} catch (InterruptedException e) {e.printStackTrace();}
+            try {wait();} catch (InterruptedException ignored) {}
         }
         int r = array[--poswrite];
         notifyAll();
