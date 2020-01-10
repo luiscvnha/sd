@@ -3,7 +3,7 @@ package Ex3;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class RWLockFairAll {
+public class RWLockFairAll implements RWLock {
     private ReentrantLock lock;
     private Condition readersCond;
     private Condition writersCond;
