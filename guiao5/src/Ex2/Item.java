@@ -1,39 +1,38 @@
 package Ex2;
 
-import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.concurrent.locks.Condition;
 
 public class Item {
-    private ReentrantLock lock;
-    private Condition isEmpty;
     private int quantity;
+    private Lock lock = new ReentrantLock();
 
     public Item() {
-        lock = new ReentrantLock();
-        isEmpty = lock.newCondition();
         quantity = 0;
     }
 
+    public Item(int initialQuantity) {
+        quantity = initialQuantity;
+    }
+
     public int getQuantity() {
-        lock.lock();
-        int r = quantity;
-        lock.unlock();
-        return r;
+        return quantity;
     }
 
     public void supply(int quantity) {
-        lock.lock();
         this.quantity += quantity;
-        isEmpty.signalAll();
-        lock.unlock();
     }
 
     public void consume() {
-        lock.lock();
-        while (quantity <= 0) {
-            try {isEmpty.await();} catch (InterruptedException e) {e.printStackTrace();}
-        }
         --quantity;
+    }
+
+    public void lock() {
+        lock.lock();
+    }
+
+    public void unlock() {
         lock.unlock();
     }
 }
