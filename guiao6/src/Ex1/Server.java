@@ -1,6 +1,5 @@
 package Ex1;
 
-import guiao6.Const;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,13 +9,13 @@ import java.net.Socket;
 
 public class Server {
     public static void main(String[] args) throws IOException {
-        ServerSocket sSock = new ServerSocket(12345);
+        ServerSocket serverSocket = new ServerSocket(12345);
 
         while (true) {
-            Socket clSock = sSock.accept();
+            Socket clientSocket = serverSocket.accept();
 
-            BufferedReader in = new BufferedReader(new InputStreamReader(clSock.getInputStream()));
-            PrintWriter out = new PrintWriter(clSock.getOutputStream());
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream());
 
             String s = "";
             while (!s.equals("quit")) {
@@ -25,9 +24,9 @@ public class Server {
                 out.flush();
             }
 
-            clSock.shutdownOutput();
-            clSock.shutdownInput();
-            clSock.close();
+            clientSocket.shutdownOutput();
+            clientSocket.shutdownInput();
+            clientSocket.close();
         }
     }
 }
