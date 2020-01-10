@@ -1,15 +1,15 @@
 package Ex2;
 
-
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class ServerMsg {
     public static final String EXIT = "quit";
-    public static final String SEPARATOR = "|";
     public static final String SEPARATOR_REGEX = "\\|";
-    public static final String MOV_VAR_SEPARATOR = "-";
+
+    private static final String SEPARATOR = "|";
+    private static final String MOV_VAR_SEPARATOR = "-";
 
     public static class Request {
         private Request() {}
@@ -36,8 +36,7 @@ public class ServerMsg {
         public static final String OUTRO = "2";
     }
 
-
-    public static String createRequestMsg(String request, Object ... os) {
+    public static String createRequestMsg(String request, Object... os) {
         StringBuilder sb = new StringBuilder();
         sb.append(request);
         for (Object o : os)
@@ -51,7 +50,7 @@ public class ServerMsg {
         return sb.toString();
     }
 
-    public static String createSuccessMsg(Object ... os) {
+    public static String createSuccessMsg(Object... os) {
         StringBuilder sb = new StringBuilder();
         sb.append(Status.SUCCESS);
         for (Object o : os)

@@ -5,9 +5,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.List;
 
-
 public class Client {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] ignored) throws IOException {
         Banco banco = new BancoRemoto("localhost", 12345);
 
         BufferedReader stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -72,7 +71,7 @@ public class Client {
         }
     }
 
-    public static String concat(String[] array, int inicio, int fim) {
+    private static String concat(String[] array, int inicio, int fim) {
         StringBuilder sb = new StringBuilder();
         sb.append(array[inicio]);
         for (int j = inicio+1; j < fim; ++j)

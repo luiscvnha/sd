@@ -1,35 +1,27 @@
 package Ex2;
 
+import static Ex2.Movimento.Operacao;
+
 import java.util.ArrayList;
 import java.util.List;
+import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
-import static Ex2.Movimento.*;
-
 
 public class Conta {
     private int id;
     private double saldo;
-    private ReentrantLock lockConta;
-    private List<Movimento> movimentos;
-
+    private Lock lockConta = new ReentrantLock();
+    private List<Movimento> movimentos = new ArrayList<>();
 
     public Conta(int id) {
         this.id = id;
         this.saldo = 0.0;
-        this.lockConta = new ReentrantLock();
-        this.movimentos = new ArrayList<>();
     }
 
     public Conta(int id, double saldo) {
         this.id = id;
         this.saldo = saldo;
-        this.lockConta = new ReentrantLock();
-        this.movimentos = new ArrayList<>();
     }
-
-    public void lock() { this.lockConta.lock(); }
-
-    public void unlock() { this.lockConta.unlock(); }
 
     public double consultar() { return saldo; }
 
@@ -49,4 +41,8 @@ public class Conta {
             r.add(m.clone());
         return r;
     }
+
+    public void lock() { lockConta.lock(); }
+
+    public void unlock() { lockConta.unlock(); }
 }

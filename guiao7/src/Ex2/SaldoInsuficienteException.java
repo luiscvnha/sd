@@ -1,6 +1,5 @@
 package Ex2;
 
-
 public class SaldoInsuficienteException extends Exception {
     private final int conta;
 

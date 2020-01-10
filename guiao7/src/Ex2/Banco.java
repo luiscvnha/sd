@@ -3,7 +3,6 @@ package Ex2;
 import java.io.IOException;
 import java.util.List;
 
-
 public interface Banco {
     void close() throws IOException;
 

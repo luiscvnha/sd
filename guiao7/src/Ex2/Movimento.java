@@ -1,12 +1,10 @@
 package Ex2;
 
-
 public class Movimento {
     private Operacao operacao;
     private String descritivo;
     private double valor;
     private double saldo;
-
 
     public enum Operacao {
         DEPOSITO("Depósito"),

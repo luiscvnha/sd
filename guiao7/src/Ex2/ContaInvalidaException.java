@@ -1,6 +1,5 @@
 package Ex2;
 
-
 public class ContaInvalidaException extends Exception {
     private final int conta;
 
