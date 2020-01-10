@@ -1,6 +1,5 @@
 package Ex2;
 
-import guiao6.Const;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
