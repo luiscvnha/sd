@@ -9,7 +9,7 @@ guião | exercícios propostos
 1 | 3
 2 |
 3 |
-4 | 3
-5 | 1
+4 |
+5 |
 6 |
 7 |
