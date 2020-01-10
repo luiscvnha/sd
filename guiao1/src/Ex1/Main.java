@@ -1,9 +1,9 @@
 package Ex1;
 
-public class Ex1 implements Runnable {
+public class Main implements Runnable {
     private int I;
 
-    public Ex1(int i) {this.I = i;}
+    public Main(int i) {this.I = i;}
 
     public void run() {
         for (int i = 1; i <= this.I; ++i)
@@ -16,7 +16,7 @@ public class Ex1 implements Runnable {
         Thread[] threads = new Thread[N];
 
         for (int i = 0; i < N; ++i)
-            threads[i] = new Thread(new Ex1(I));
+            threads[i] = new Thread(new Main(I));
 
         System.out.println("Antes");
         for (int i = 0; i < N; ++i)
