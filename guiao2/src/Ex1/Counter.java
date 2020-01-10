@@ -7,5 +7,5 @@ public class Counter {
 
     public synchronized void increment() {++x;}
 
-    public int get() {return x;}
+    public synchronized int get() {return x;}
 }
