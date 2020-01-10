@@ -13,7 +13,6 @@ public class Produtor implements Runnable {
         Tp = t;
     }
 
-    @Override
     public void run() {
         for (int i = 0; i < numOps; ++i) {
             buf.put(i);
