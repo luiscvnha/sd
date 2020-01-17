@@ -46,7 +46,7 @@ public class ControladorImpl implements Controlador {
         }
     }
 
-    public void requisita_viagem(int origem /*[1, 5]*/, int destino /*[1, 5]*/) {
+    public void requisita_viagem(int origem, int destino) {
         lock.lock();
 
         // chega ao terminal
@@ -75,7 +75,7 @@ public class ControladorImpl implements Controlador {
         lock.unlock();
     }
 
-    public void espera(int destino /*[1, 5]*/) {
+    public void espera(int destino) {
         lock.lock();
 
         // espera que chegue ao terminal 'destino'
